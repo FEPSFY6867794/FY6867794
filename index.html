@@ -130,10 +130,11 @@ margin: 0px 80px 0px 80px;
 
 <script>
   async function getLastUpdatedTime() {
-    const username = 'FEPSFY6867794;
-    const repo = 'FY6867794;
+    const username = 'FEPSFY6867794';
+    const repo = 'FY6867794';
 
-    const url = 'https://api.github.com/${username}/${repo}/commits';
+    // Correct the URL by using backticks for template literals
+    const url = `https://api.github.com/repos/${username}/${repo}/commits`;
 
     try {
       const response = await fetch(url, {
@@ -142,14 +143,18 @@ margin: 0px 80px 0px 80px;
           'Accept': 'application/vnd.github.v3+json',
         }
       });
+
       if (!response.ok) {
-        throw new Error('Error fetching data: ${response.status} - ${response.statusText}');
+        // Correct string interpolation in error message
+        throw new Error(`Error fetching data: ${response.status} - ${response.statusText}`);
       }
+
       const commits = await response.json();
+
       if (commits && commits.length > 0) {
         const lastCommitDate = new Date(commits[0].commit.committer.date);
-
-        document.getElementById('last-updated').innerText = 'Last Modified Time: ${lastCommitDate.toLocaleString()}';
+        // Correct string interpolation for displaying the date
+        document.getElementById('last-updated').innerText = `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
       } else {
         document.getElementById('last-updated').innerText = 'No commits found in the repository.';
       }
@@ -161,9 +166,11 @@ margin: 0px 80px 0px 80px;
 
   async function verifyLastUpdatedTime() {
     document.getElementById('last-updated').innerText = 'Verifying...';
-    await getLastUpdatedTime();
+    await getLastUpdatedTime();  // You may not need to call this if it's already invoked on window.onload
     alert("Last modified time has been successfully verified from GitHub API.");
   } 
+
+  // Call the function when the page loads
   window.onload = getLastUpdatedTime;
 </script>
 </body>
