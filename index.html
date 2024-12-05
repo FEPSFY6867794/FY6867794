@@ -62,7 +62,7 @@ margin: 0px 80px 0px 80px;
     <td><a href="#References">References</a></td>
   </tr>
 </table>
-
+<div id="Total_InText">
 <h3 id="Abstract" class="ex1">
       Abstract
 </h3>
@@ -70,14 +70,13 @@ margin: 0px 80px 0px 80px;
   F1 has always been a place where both the mechanics and the drivers are able to push the boundaries of racing. I will be looking into the different ways that aerodynamics has evolved from the start of F1 in the 1950s to today talking about different tools which have helped to create the cars we see today like CFD and wind tunnels, also I will go over some of the many innovations which have been used to increase the overall performance of the cars that have change F1 for ever like the floor, diffuser and the DRS. As well as this I will touch on the exiting future of F1 and how it will change the sport.
 </р>
 
-<div id="Introduction_InText">
 <h3 id="Introduction" class="ex1">
     Introduction
 </h3>
 <p class="ex2">
   Formula one (F1) is not only for entertainment this is also a place for some of the brightest engineers to push their ability to create a car that is able to go quickly down the straights while being smooth through the corners one of the ways they are able to do this is by using aerodynamics. Aerodynamics have changed dramatically from the beginning of F1 in 1950 with a cylindrical shape, which wasn’t very aerodynamic however this was because at this time cars were not going fast enough for mechanics to have to worry about it. However, as the cars got faster the importance of good aerodynamics increased which caused the mechanics to start looking into how the shape of the car changed how well the car performed under different conditions which introduced wings and spoilers and a more streamline design which has led to the design that is seen in today’s F1 cars.
 </р>
-</div>
+  
 <h3 id="MainBody" class="ex1">
     Main Body
 </h3>
@@ -122,7 +121,7 @@ margin: 0px 80px 0px 80px;
 <p class="ex2">
   Zhang, Z. (2023) 'Study on aerodynamic development in Formula One racing,' Theoretical and Natural Science, 14(1), pp. 38–41. https://doi.org/10.54254/2753-8818/14/20240875. (Accessed: 16 Oct 2024).
 </p>
-
+</div>
 <div id="last-updated">Loading last update time...</div>
 
 <button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto; padding: 8px 16px;">
@@ -197,12 +196,8 @@ margin: 0px 80px 0px 80px;
 
   // Function to calculate and display total word count from selected sections
   function displayTotalWordCount() {
-    // Calculate word count for each section and accumulate the total
-    const IntroductionCount = displayWordCount("Introduction_InText");
-    const AnalysisCount = displayWordCount("Analysis_InText");
-
-    // Calculate the sum of all selected sections
-    const totalWordCount = IntroductionCount + AnalysisCount;
+    // Calculate total word count
+    const totalWordCount = displayWordCount("Total_InText");
 
     // Display the total word count
     document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
